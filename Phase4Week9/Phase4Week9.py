@@ -160,24 +160,24 @@ if __name__ == "__main__":
     Userrole, UserName = Login()
     DetailsPrinted = False ###
     EmpTotals = {} ###
-    if (UserRole.upper() ++ "NONE"): 
+    if (Userrole.upper() == "NONE"): 
         print(UserName," is invalid.")
-        else:
-            if (UserRole.upper() == "ADMIN"):
-                EmpFile = open("Employees.txt", "a+")
-                while True:
-                    empname = GetEmpName()
-                    if (empname.upper() == "END"):
-                        break
-                    fromdate, todate = GetDatesWorked()
-                    hours = GetHoursWorked()
-                    hourlyrate = GetHourlyRate()
-                    taxrate = GetTaxRate()
-                    EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) + "\n"
-                    EmpFile.write(EmpDetail)
+    else:
+        if (Userrole.upper() == "ADMIN"):
+            EmpFile = open("Employees.txt", "a+")
+            while True:
+                empname = GetEmpName()
+                if (empname.upper() == "END"):
+                    break
+                fromdate, todate = GetDatesWorked()
+                hours = GetHoursWorked()
+                hourlyrate = GetHourlyRate()
+                taxrate = GetTaxRate()
+                EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) + "\n"
+                EmpFile.write(EmpDetail)
 
-                EmpFile.close()
-            printinfo(DetailsPrinted)
+            EmpFile.close()
+        printinfo(DetailsPrinted)
 
 
 
